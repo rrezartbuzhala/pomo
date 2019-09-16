@@ -18,7 +18,7 @@ body{
 }
 .counter-clock{
     display: inline-block;
-    font-size:1500%;
+    font-size:1300%;
     
 }
 #min{
@@ -46,12 +46,11 @@ body{
     height: 0px;
     background-color: #ffffff;
     overflow: hidden;
+    color:#000000 !important;
     text-overflow: ellipsis;
 }
-.menu p{
-    color:#000000;
-    font-weight: bolder;
-    font-size:120%;
+.menu p {
+    display: in;
 }
 .list li{
     display: inline-block;
@@ -60,4 +59,27 @@ body{
 .btn{
     background-color:transparent;
     border:none;
+}
+.time-info
+{
+    font-size:90%;
+    font-family: 'Inconsolata', monospace;
+}
+#exit-menu{
+    background-color:rgb(153, 40, 40);
+}
+.settings-input
+{
+    width: 100%;
+    margin-top:15px;
+    padding:10px 5px;
+    color: #000000;
+    border:none;
+    border-bottom:1px solid black;
+}
+.settings-section
+{
+    display: inline-block;
+    width:30%;
+    background-color: green;
 }

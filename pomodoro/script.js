@@ -7,10 +7,12 @@ var setPause = 4;
 if(localStorage.getItem("workTime") != null)
 {
     setWork = parseInt(localStorage.getItem("workTime"))-1;
+    document.getElementById("pomodoro-time_show").innerHTML = " "+localStorage.getItem("workTime");
 }
 if(localStorage.getItem("pauseTime") != null)
 {
     setPause = parseInt(localStorage.getItem("pauseTime"))-1;
+    document.getElementById("pause-time_show").innerHTML = " "+localStorage.getItem("pauseTime");
 }
 //DOM represantation for Computed Output from "pomodoroMinute","second";
 var minutes = document.getElementById("min");
@@ -22,7 +24,8 @@ var message;
 var startLoad = document.getElementsByClassName("start-load");   
 
 //Load The CountDown
-function Load() {
+function Load()
+{
     startLoad[0].style.display = "none";
     startLoad[1].style.display = "none";
    var secondInterval = setInterval(
@@ -78,6 +81,9 @@ function StartLoad(message)
     else if (message == "pomodoro") {
         pomodoroMinute = setWork;
         this.message = "Your pomodoro is over";
+        var ytLinks = ["https://www.youtube.com/watch?v=-nHf84N0Iu4", "https://www.youtube.com/watch?v=-nHf84N0Iu4", "https://www.youtube.com/watch?v=-nHf84N0Iu4", "https://www.youtube.com/watch?v=-nHf84N0Iu4"]
+        var random = Math.floor(Math.random() * 4);
+        window.open(ytLinks[random], '_blank');
     }
     minutes.innerHTML = DoubleDigit(pomodoroMinute+1);
     second = 60;
@@ -110,7 +116,9 @@ function SaveSettings()
         setPause = pauseTime;
         localStorage.setItem("pauseTime", setPause);
     }
+    location.reload();
     document.getElementById("settings").style.height = "0px";
+
 }
 //if the number is a singe digit add "0" for better formating
 function DoubleDigit(num)

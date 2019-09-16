@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pomodoro Timer</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-   
+    <link href="https://fonts.googleapis.com/css?family=Poppins|Inconsolata&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
     <section class="menu" id="settings">
-        <p onclick="HideMenu('settings');">X</p>
-        <p>Pomodoro time:</p>
-        <input id="pomodoro-time" type="text">
-        <input id="pause-time" type="text">
-        <button onclick="SaveSettings();">Save Settings</button>
+        <p id="exit-menu" onclick="HideMenu('settings');">Exit</p>
+        <section class="settings-section" id="time-settings">
+            <p>Pomodoro time:</p>
+            <input class="settings-input" id="pomodoro-time" type="text">
+            <input class="settings-input" id="pause-time" type="text">
+        </section>
+        <button class="btn" onclick="SaveSettings();">Save Settings</button>
     </section>
     <section class="menu" id="tasks">
         <p onclick="HideMenu('tasks');">X</p>
     </section>
     <ul class="list">
         <li><a target="_blank" href="https://en.wikipedia.org/wiki/Pomodoro_Technique">Info</a></li>
-        <li><button class="btn" id="settings-button"  onclick="ShowMenu('settings');" >Settings</button></li>
-        <li><button class="btn" id="tasks-button"  onclick="ShowMenu('tasks');">Tasks</button></li>
+        <li><button class="btn" id="settings-button" onclick="ShowMenu('settings');">Settings</button></li>
+        <li><button class="btn" id="tasks-button" onclick="ShowMenu('tasks');">Tasks</button></li>
         <li><button class="btn" onclick="location.reload();">Stop Timer</button></li>
-    </ul>   
+    </ul>
+    <p class="time-info">Your Current Pomodoro Time:<span id="pomodoro-time_show"> 25</span> min</p>
+    <p class="time-info">Your Current Pause Time:<span id="pause-time_show"> 5</span> min</p>
     <section class="counter paramore">
         <p class="counter-clock" id="min">25</p>
         <p class="counter-clock">:</p>
@@ -37,4 +43,5 @@
     </section>
 </body>
 <script src="script.js"></script>
+
 </html>
