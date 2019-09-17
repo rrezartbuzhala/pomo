@@ -8,7 +8,6 @@
     <title>Pomodoro Timer</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins|Inconsolata&display=swap" rel="stylesheet">
-
 </head>
 
 <body id="body">
@@ -27,45 +26,47 @@
                 </section>
             </section>
             <section class="two-settings">
-                    <section class="one-setting">
-                        <p>Pomodoros per Sauce: <span title="Typically after 4 pomodoros(140 minutes) one task is done and than you can take a longer pause, so with this option you can decide how many pomodoros you need for one task" id="sauce-info">?</span></p>
-                        <input class="settings-input" type="number" id="sauce-time" type="text">
-                    </section>
-                    <section class="one-setting">
-                        <p>Pause time after Sauce:</p>
-                        <input class="settings-input" type="number" id="after-sauce-time" type="text">
-                    </section>
+                <section class="one-setting">
+                    <p>Pomodoros per Sauce: <span
+                            title="Typically after 4 pomodoros(140 minutes) one task is done and than you can take a longer pause, so with this option you can decide how many pomodoros you need for one task"
+                            id="sauce-info">?</span></p>
+                    <input class="settings-input" type="number" id="sauce-time" type="text">
                 </section>
+                <section class="one-setting">
+                    <p>Pause time after Sauce:</p>
+                    <input class="settings-input" type="number" id="after-sauce-time" type="text">
+                </section>
+            </section>
         </section>
         <section class="settings-section">
-                <h3>Time Settings</h3>
-                <section class="two-settings">
-                        <section class="one-setting">
-                            <p>Pomodoro Time:</p>
-                            <input class="settings-input" type="number" id="pomodoro-time" type="text">
-                        </section>
-                        <section class="one-setting">
-                            <p>Pause Time:</p>
-                            <input class="settings-input" type="number" id="pause-time" type="text">
-                        </section>
-                    </section>
-                    <section class="two-settings">
-                            <section class="one-setting">
-                                <p>Pomodoros per Sauce:</p>
-                                <input class="settings-input" type="number" id="sauce-time" type="text">
-                            </section>
-                            <section class="one-setting">
-                                <p>Pause time after Sauce:</p>
-                                <input class="settings-input" type="number" id="after-sauce-time" type="text">
-                            </section>
-                        </section>
+            <h3>Time Settings</h3>
+            <section class="two-settings">
+                <section class="one-setting">
+                    <p>Pomodoro Time:</p>
+                    <input class="settings-input" type="number" id="pomodoro-time" type="text">
+                </section>
+                <section class="one-setting">
+                    <p>Pause Time:</p>
+                    <input class="settings-input" type="number" id="pause-time" type="text">
+                </section>
+            </section>
+            <section class="two-settings">
+                <section class="one-setting">
+                    <p>Pomodoros per Sauce:</p>
+                    <input class="settings-input" type="number" id="sauce-time" type="text">
+                </section>
+                <section class="one-setting">
+                    <p>Pause time after Sauce:</p>
+                    <input class="settings-input" type="number" id="after-sauce-time" type="text">
+                </section>
+            </section>
         </section>
         <section class="settings-section">
-                <h3>Time Settings</h3>
-                <p>Pomodoro time:</p>
-                <input class="settings-input" type="number" id="pomoro-time" type="text"><br>
-                <p>Pause time:</p>
-                <input class="settings-input" type="number" id="paus-time" type="text">
+            <h3>Time Settings</h3>
+            <p>Pomodoro time:</p>
+            <input class="settings-input" type="number" id="pomoro-time" type="text"><br>
+            <p>Pause time:</p>
+            <input class="settings-input" type="number" id="paus-time" type="text">
         </section>
         <p onclick="SaveSettings();">Save Settings</p>
         <p onclick="HideMenu('settings');">Cancel Settings</p>
@@ -74,14 +75,15 @@
         <p onclick="HideMenu('tasks');">X</p>
     </section>
     <ul class="list">
-        <li><a target="_blank" href="https://en.wikipedia.org/wiki/Pomodoro_Technique" style="color:#ffffff">Info</a></li>
+        <li><a target="_blank" href="https://en.wikipedia.org/wiki/Pomodoro_Technique" style="color:#ffffff">Info</a>
+        </li>
         <li><button class="btn" id="settings-button" onclick="ShowMenu('settings');">Settings</button></li>
         <li><button class="btn" id="tasks-button" onclick="ShowMenu('tasks');">Tasks</button></li>
         <li><button class="btn" onclick="location.reload();">Stop Timer</button></li>
     </ul>
     <p class="time-info">Your Current Pomodoro Time:<span id="pomodoro-time_show"> 25</span> min</p>
     <p class="time-info">Your Current Pause Time:<span id="pause-time_show"> 5</span> min</p>
-    <p class="time-info">Pomodoros per Sauce:<span id="counter">0</span>/<span id="pomodoro-per-sauce"></span></p>
+    <p class="time-info">Pomodoros per Sauce: <span id="counter">0</span>/<span id="pomodoro-per-sauce"></span></p>
     <section class="counter paramore">
         <p class="counter-clock" id="min">25</p>
         <p class="counter-clock">:</p>
