@@ -3,11 +3,18 @@
     padding:0px;
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
-    color:#ffffff;
+
     
-}   
+}
+*:focus {
+    outline: none;
+}
 body{
-    background-color:#000000;
+    background-color:#000000e0;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-blend-mode: darken;
+    color:#ffffff;
 
 }
 .counter{
@@ -41,16 +48,20 @@ body{
     border: 1px solid #ffffff;
     border-radius: 5px;
     padding: 10px 15px;
+    color:#ffffff;
 }
 .menu{
+    text-align:center;
     height: 0px;
-    background-color: #ffffff;
+    background-color: #f3f3f3;
     overflow: hidden;
     color:#000000 !important;
     text-overflow: ellipsis;
+
 }
 .menu p {
-    display: in;
+    font-size:70%;
+
 }
 .list li{
     display: inline-block;
@@ -59,6 +70,7 @@ body{
 .btn{
     background-color:transparent;
     border:none;
+    color: #ffffff;
 }
 .time-info
 {
@@ -70,16 +82,32 @@ body{
 }
 .settings-input
 {
-    width: 100%;
-    margin-top:15px;
-    padding:10px 5px;
-    color: #000000;
-    border:none;
-    border-bottom:1px solid black;
+    width: 90%;
+    margin-bottom:15px;
+    padding:5px 5px;
+    border:1px solid #a8a8a8;
+    border-radius: 10px;
 }
 .settings-section
 {
+    background: linear-gradient(to bottom right, #ffffff,#ebebeb);
+    text-align: left;
+    margin:10px 15px;
+    padding:10px 10px;
     display: inline-block;
     width:30%;
-    background-color: green;
+    color:#000000 !important;
+    /* border: 1px dotted #000000; */
+    border-radius: 5px;
+}
+.two-settings{
+    display: inline-block;
+    width: 47%;
+    margin-top:20px;
+    
+}
+#sauce-info{
+    padding:0px 5px;
+    background:rgb(160, 160, 160);
+    border-radius:50px;
 }

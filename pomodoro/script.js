@@ -8,6 +8,7 @@ if(localStorage.getItem("workTime") != null)
 {
     setWork = parseInt(localStorage.getItem("workTime"))-1;
     document.getElementById("pomodoro-time_show").innerHTML = " "+localStorage.getItem("workTime");
+    document.getElementById("min").innerHTML = " "+localStorage.getItem("workTime");
 }
 if(localStorage.getItem("pauseTime") != null)
 {
@@ -21,7 +22,20 @@ var seconds = document.getElementById("sec");
 var messageDOM = document.getElementById("message");
 var message; 
 //Buttons for Starting a timer
-var startLoad = document.getElementsByClassName("start-load");   
+var startLoad = document.getElementsByClassName("start-load"); 
+//pomotoros counter
+var counter = 0; 
+var counterDOM = document.getElementById("counter");
+//pomotoros per sauce setiings
+var perSauceDOM = document.getElementById("sauce-time");
+var perSauce = 4;
+document.getElementById("pomodoro-per-sauce").innerHTML = perSauce;
+if(localStorage.getItem("perSauce") != null)
+{
+    document.getElementById("pomodoro-per-sauce").innerHTML = localStorage.getItem("perSauce");
+}
+//Background Pictures
+document.getElementsByTagName("body")[0].style.backgroundImage = "url('bgimages/"+Math.floor(Math.random()*8)+".jpg')";
 
 //Load The CountDown
 function Load()
@@ -65,9 +79,14 @@ function PomodoroFinished()
 {
     //qka ndoth pasi qe mbaron pomodoro
     messageDOM.innerHTML = message;
+    //var id = chrome.tabs.getCurrentTab().tabId;
+    //console.log(id);
+    //var remove = browser.tabs.remove(id+1);
     document.getElementById("sound").play();
     startLoad[0].style.display = "initial";
     startLoad[1].style.display = "initial";
+    document.getElementById("counter").innerHTML = ++counter;
+    
 }
 //
 function StartLoad(message)
@@ -81,9 +100,9 @@ function StartLoad(message)
     else if (message == "pomodoro") {
         pomodoroMinute = setWork;
         this.message = "Your pomodoro is over";
-        var ytLinks = ["https://www.youtube.com/watch?v=-nHf84N0Iu4", "https://www.youtube.com/watch?v=-nHf84N0Iu4", "https://www.youtube.com/watch?v=-nHf84N0Iu4", "https://www.youtube.com/watch?v=-nHf84N0Iu4"]
-        var random = Math.floor(Math.random() * 4);
-        window.open(ytLinks[random], '_blank');
+        // var ytLinks = ["https://www.youtube.com/watch?v=-nHf84N0Iu4", "https://www.youtube.com/watch?v=-nHf84N0Iu4", "https://www.youtube.com/watch?v=-nHf84N0Iu4", "https://www.youtube.com/watch?v=-nHf84N0Iu4"]
+        // var random = Math.floor(Math.random() * 4);
+        // window.open(ytLinks[random], '_blank');
     }
     minutes.innerHTML = DoubleDigit(pomodoroMinute+1);
     second = 60;
@@ -94,7 +113,7 @@ function StartLoad(message)
 }
 function ShowMenu(id)
 {
-    document.getElementById(id).style.height = "200px";
+    document.getElementById(id).style.height = "250px";
 }
 function HideMenu(id)
 {
@@ -107,15 +126,19 @@ function SaveSettings()
     //Inputs from setting for setWork and setPause, Defaults:24,4; 
     var workTime = parseInt(document.getElementById("pomodoro-time").value);
     var pauseTime = parseInt(document.getElementById("pause-time").value);
-    if (!(Number.isNaN(workTime))) 
+    if (!(Number.isNaN(workTime)) && workTime > 0) 
     {
         setWork = workTime;
         localStorage.setItem("workTime", setWork);
     }
-    if (!(Number.isNaN(pauseTime))) {
+    if (!(Number.isNaN(pauseTime)) && pauseTime > 0) {
         setPause = pauseTime;
         localStorage.setItem("pauseTime", setPause);
     }
+    if (!(Number.isNaN(parseInt(perSauceDOM.value))) && parseInt(perSauceDOM.value) > 0) {
+        localStorage.setItem("perSauce", parseInt(perSauceDOM.value));
+    }
+
     location.reload();
     document.getElementById("settings").style.height = "0px";
 
