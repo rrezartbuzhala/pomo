@@ -39,25 +39,25 @@
             </section>
         </section>
         <section class="settings-section">
-            <h3>Time Settings</h3>
+            <h3>Tasks</h3>
             <section class="two-settings">
                 <section class="one-setting">
-                    <p>Pomodoro Time:</p>
-                    <input class="settings-input" type="number" id="pomodoro-time" type="text">
-                </section>
-                <section class="one-setting">
-                    <p>Pause Time:</p>
-                    <input class="settings-input" type="number" id="pause-time" type="text">
+                    <p>Add Tasks:</p>
+                    <input class="settings-input" type="text" id="add-task">
+                    <input class="settings-input" type="text" id="add-task">
+ 
+                    
+                    <!-- <button class="settings-btn" onclick="SaveTask();">Save Task</button> -->
                 </section>
             </section>
             <section class="two-settings">
-                <section class="one-setting">
-                    <p>Pomodoros per Sauce:</p>
-                    <input class="settings-input" type="number" id="sauce-time" type="text">
-                </section>
-                <section class="one-setting">
-                    <p>Pause time after Sauce:</p>
-                    <input class="settings-input" type="number" id="after-sauce-time" type="text">
+                <section class="one-settings">
+                    <p id="task-list">
+                        <span class="task">*Create Task Feature </span>
+                        <span class="task">*Change The Style of The Clock</span>
+                        <span class="task">*Make a online envirement ready</span>
+                        <span class="task">*OOP exercisees</span>
+                    </p>
                 </section>
             </section>
         </section>
@@ -68,8 +68,8 @@
             <p>Pause time:</p>
             <input class="settings-input" type="number" id="paus-time" type="text">
         </section>
-        <p onclick="SaveSettings();">Save Settings</p>
-        <p onclick="HideMenu('settings');">Cancel Settings</p>
+        <button class="settings-btn btn" onclick="SaveSettings();">Save Settings</button>
+        <button class="settings-btn btn" onclick="HideMenu('settings');">Cancel Settings</button>
     </section>
     <section class="menu" id="tasks">
         <p onclick="HideMenu('tasks');">X</p>
@@ -77,9 +77,9 @@
     <ul class="list">
         <li><a target="_blank" href="https://en.wikipedia.org/wiki/Pomodoro_Technique" style="color:#ffffff">Info</a>
         </li>
-        <li><button class="btn" id="settings-button" onclick="ShowMenu('settings');">Settings</button></li>
-        <li><button class="btn" id="tasks-button" onclick="ShowMenu('tasks');">Tasks</button></li>
-        <li><button class="btn" onclick="location.reload();">Stop Timer</button></li>
+        <li><button class="menu-btn" id="settings-button" onclick="ShowMenu('settings');">Settings</button></li>
+        <li><button class="menu-btn" id="tasks-button" onclick="ShowMenu('tasks');">Tasks</button></li>
+        <li><button class="menu-btn" onclick="location.reload();">Stop Timer</button></li>
     </ul>
     <p class="time-info">Your Current Pomodoro Time:<span id="pomodoro-time_show"> 25</span> min</p>
     <p class="time-info">Your Current Pause Time:<span id="pause-time_show"> 5</span> min</p>

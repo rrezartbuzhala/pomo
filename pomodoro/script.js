@@ -33,6 +33,7 @@ document.getElementById("pomodoro-per-sauce").innerHTML = perSauce;
 if(localStorage.getItem("perSauce") != null)
 {
     document.getElementById("pomodoro-per-sauce").innerHTML = localStorage.getItem("perSauce");
+    perSauce = parseInt(localStorage.getItem("perSauce"));
 }
 //Background Pictures
 document.getElementsByTagName("body")[0].style.backgroundImage = "url('bgimages/"+Math.floor(Math.random()*8)+".jpg')";
@@ -85,7 +86,18 @@ function PomodoroFinished()
     document.getElementById("sound").play();
     startLoad[0].style.display = "initial";
     startLoad[1].style.display = "initial";
-    document.getElementById("counter").innerHTML = ++counter;
+    localStorage.setItem("counter",++counter);
+    document.getElementById("counter").innerHTML = localStorage.getItem("counter");
+    if(counter == perSauce)
+    {
+        counter = 0;
+        localStorage.setItem("counter",counter);
+        document.getElementById("counter").innerHTML = localStorage.getItem("counter");
+        messageDOM.innerHTML = "Your Sauce is over";
+
+        TaskDone(num);
+
+    }
     
 }
 //
@@ -113,7 +125,7 @@ function StartLoad(message)
 }
 function ShowMenu(id)
 {
-    document.getElementById(id).style.height = "250px";
+    document.getElementById(id).style.height = "270px";
 }
 function HideMenu(id)
 {

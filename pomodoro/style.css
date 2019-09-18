@@ -66,7 +66,7 @@ body{
     display: inline-block;
     margin: 15px 20px;
 }
-.btn{
+.menu-btn{
     background-color:transparent;
     border:none;
     color: #ffffff;
@@ -83,7 +83,7 @@ body{
 {
     width: 90%;
     margin-bottom:15px;
-    padding:5px 5px;
+    padding:5px 10px;
     border:1px solid #a8a8a8;
     border-radius: 10px;
 }
@@ -98,6 +98,7 @@ body{
     color:#000000 !important;
     /* border: 1px dotted #000000; */
     border-radius: 5px;
+    vertical-align: top;
 }
 .two-settings{
     display: inline-block;
@@ -109,4 +110,21 @@ body{
     padding:0px 5px;
     background:rgb(160, 160, 160);
     border-radius:50px;
+}
+#task-list{
+    /* text-align: center; */
+    vertical-align: top;
+}
+.task{
+   display: block;
+
+}
+.settings-btn{
+    margin:0 20px;
+    font-size: 100%;
+    background-color: transparent;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color:#000000;
 }
