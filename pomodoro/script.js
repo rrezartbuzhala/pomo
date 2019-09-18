@@ -24,7 +24,11 @@ var message;
 //Buttons for Starting a timer
 var startLoad = document.getElementsByClassName("start-load"); 
 //pomotoros counter
-var counter = 0; 
+var counter = 0;
+if(localStorage.getItem("counter") != null)
+{
+    counter = parseInt(localStorage.getItem("counter"));
+}
 var counterDOM = document.getElementById("counter");
 //pomotoros per sauce setiings
 var perSauceDOM = document.getElementById("sauce-time");
