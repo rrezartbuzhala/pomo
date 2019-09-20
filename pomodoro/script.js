@@ -35,6 +35,23 @@ if(localStorage.getItem("perSauce") != null)
     document.getElementById("pomodoro-per-sauce").innerHTML = localStorage.getItem("perSauce");
     perSauce = parseInt(localStorage.getItem("perSauce"));
 }
+//Count Sauces 
+var saucesCompleted = 0;
+document.getElementById("sauces-count").innerHTML = saucesCompleted;
+if(localStorage.getItem("saucesCompleted") != null)
+{
+    document.getElementById("sauces-count").innerHTML = localStorage.getItem("saucesCompleted");
+    saucesCompleted = parseInt(localStorage.getItem("saucesCompleted"));
+}
+//Pause After Sauce 
+var pauseAfterSauceDOM = document.getElementById("after-sauce-time");
+var pauseAfterSauce = 15;
+document.getElementById("pause-after-sauce").innerHTML = pauseAfterSauce;
+if(localStorage.getItem("pauseSauce") != null)
+{
+    document.getElementById("pause-after-sauce").innerHTML = localStorage.getItem("pauseSauce");
+    pauseAfterSauce = parseInt(localStorage.getItem("pauseSauce"));
+}
 //Background Pictures
 document.getElementsByTagName("body")[0].style.backgroundImage = "url('bgimages/"+Math.floor(Math.random()*8)+".jpg')";
 
@@ -86,15 +103,27 @@ function PomodoroFinished()
     document.getElementById("sound").play();
     startLoad[0].style.display = "initial";
     startLoad[1].style.display = "initial";
-    localStorage.setItem("counter",++counter);
-    document.getElementById("counter").innerHTML = localStorage.getItem("counter");
+    if (message == "Your pomodoro is over") 
+     {
+        localStorage.setItem("counter", ++counter);
+        document.getElementById("counter").innerHTML = localStorage.getItem("counter");
+    }
+    if(counter > 0 && counter%perSauce == 0)
+    {
+        setPause = pauseAfterSauce-1;
+    }
+    else
+    {
+        setPause = parseInt(localStorage.getItem("pauseTime"))-1;
+    }
     if(counter == perSauce)
     {
         counter = 0;
         localStorage.setItem("counter",counter);
         document.getElementById("counter").innerHTML = localStorage.getItem("counter");
         messageDOM.innerHTML = "Your Sauce is over";
-
+        localStorage.setItem("pauseSauces",++saucesCompleted);
+        document.getElementById("sauces-count").innerHTML = saucesCompleted;        
         TaskDone(num);
 
     }
@@ -149,6 +178,9 @@ function SaveSettings()
     }
     if (!(Number.isNaN(parseInt(perSauceDOM.value))) && parseInt(perSauceDOM.value) > 0) {
         localStorage.setItem("perSauce", parseInt(perSauceDOM.value));
+    }
+    if (!(Number.isNaN(parseInt(pauseAfterSauceDOM.value))) && parseInt(pauseAfterSauceDOM.value) > 0) {
+        localStorage.setItem("pauseSauce", parseInt(pauseAfterSauceDOM.value));
     }
 
     location.reload();
